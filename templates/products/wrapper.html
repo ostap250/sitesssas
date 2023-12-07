@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome_free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    {% block head %}
+	{% endblock %}
+</head>
+<body>
+
+	<!-- header -->
+
+	<header class="header">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+                <div class="col-sm">
+                	<div class="catalog">
+                		<a class="nav-menu down" href="#"><i class="fas fa-bars"></i>Каталог товарів</a>
+			            <ul class="submenu">
+                        {% for category in categories %}
+                           <li><a href="{{ category.url }}">{{ category.name }} ({{ category.count }})</a></li>
+                        {% endfor %}
+			            </ul>
+                	</div>
+	            </div>
+				<div class="col-sm">
+					<a href="{% url 'Index' %}"><img src="{% static 'img/logo.png' %}" alt="logotype"></a>
+				</div>
+            {% if not request.user.is_authenticated %}
+				<div class="col-sm">
+					<a class="login" href="{% url 'login' %}">Увійти<i class="fas fa-user"></i></a>
+					<a class="registration" href="{% url 'registration' %}">Зареєструватись<i class="fas fa-user"></i></a>
+				</div>
+            {% else %}
+            <div class="col-sm">
+					<a class="profile" href="{% url 'profile' %}">{{ request.user.username }}<i class="fas fa-user"></i></a>
+					<a class="logout" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></a>
+					<a class="icons" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i><span class="badge badge-pill badge-danger">{{ cart.products.count }}</span></a>
+				</div>
+            {% endif %}
+			</div>
+		</div>
+	</header>
+	<div class="under-head"></div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close"  data-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- ------------------- -->
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- footer -->
+
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-sm-4">
+					<div class="content">
+						<img src="{% static 'img/logo.png' %}" alt="logotype">
+						<p>Copyright by eltex</p>
+					</div>
+				</div>
+				<div class="col-sm-5">
+					<div class="content">
+						<h4>Контакти</h4>
+						<p>
+							Інфомаційна служба
+							<br>
+							<span><a href="tel:0800-202-193">0800-202-193</a></span>
+							<br>
+							Email: <a href="mailto:info@gmail.com">info@gmail.com</a>
+							<br>
+							Графік роботи
+							Пн-Нд 08:30-22:00
+						</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<div class="content">
+						<h6>Соціальні мережі</h6>
+						<a href="#"><i class="fab fa-telegram"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-facebook"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

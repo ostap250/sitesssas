@@ -1,0 +1,312 @@
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
+
+/*basic*/
+
+body {
+	font-family: Raleway ,sans-serif;
+}
+
+html {
+	font-size: 24px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+i {
+	padding: 10px;
+}
+
+/*header*/
+
+.header {
+	width: 100%;
+	height: 110px;
+	background-color: #88c00f;
+	text-align: center;
+}
+
+.nav-menu {
+	color: #88c00f;
+	text-decoration: none;
+	font-size: .9rem;
+	font-weight: 500;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 5px 5px 0 0;
+	transition: .2s all linear;
+}
+
+.nav-menu:hover {
+	color: #88c00f;
+}
+
+.login,
+.registration {
+	font-size: .9rem;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.login:hover,
+.registration:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.logout {
+	color: #fff;
+	margin-right: 25px;
+}
+
+.profile {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.profile:hover,
+.logout:hover {
+	color: #fff;
+}
+
+.header img {
+	width: 150px;
+	height: 104px;
+}
+
+.header .icons:hover {
+	color: #fff;
+}
+
+@media (max-width: 830px) {
+
+	.header {
+		width: 100%;
+		height: 90px;
+		background-color: #88c00f;
+		text-align: center;
+	}
+
+	.nav-menu, .login-button {
+		color: #fff;
+		text-decoration: none;
+		font-size: .8rem;
+		font-weight: 500;
+		padding: 20px;
+	}
+
+	.header img {
+		width: 100px;
+		height: 84px;
+	}
+
+}
+
+/*under-head*/
+
+.under-head {
+	width: 100%;
+	height: 12px;
+	background-color: #74a50c;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 5px 5px 1px #b2b2b2; /* x, y, radius, width, color */
+}
+
+.icons {
+	color: #fff;
+	font-size: .9rem;
+}
+
+/*#search {
+	width: 600px;
+	height: 30px;
+	margin: auto;
+	padding-left: 35px;
+	font-size: .6rem;
+	font-family: Raleway ,sans-serif;
+	position: relative;
+}
+
+#seach::placeholder {
+	font-weight: 500;
+}
+
+#icon-search {
+	color: #414345;
+	position: absolute;
+	font-size: .7rem;
+	z-index: 5;
+}
+
+.icons:nth-child(1) {
+	margin-left: 30%;
+}
+
+@media (max-width: 1000px) {
+
+	#search {
+		width: 400px;
+		height: 30px;
+		margin: auto;
+	}
+}*/
+
+/* login/registration */
+
+.btn-login {
+	margin-top: 20px;
+	width: 150px;
+}
+
+.btn-registration {
+	margin-top: 20px;
+	width: 230px;
+}
+
+/*.left_menu{
+	width: 15vw;
+	background-color: white;
+	height: 600px;
+	font-size: 12px;
+}
+.left_menu_block{
+	background-color: snow;
+	border-bottom: 1px solid #ddd;
+}
+.drop {
+    color: black;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+input{
+	margin-top: 10px;
+	padding-left: 25px;
+}
+.dropdown-content {
+    display: none;
+    position: relative;
+	width: 15vw;
+    overflow: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding-top: 5px;
+    text-decoration: none;
+    display: block;
+	padding-left: 35px;
+}
+.show {display: block;}
+*/
+
+.price_block {
+	text-align: center;
+	font-size: 20px;
+}
+
+.price_block input {
+	padding: 1px;
+	background-color: darkgrey;
+	border: 0px;
+	outline: none;
+}
+
+.footer {
+	margin-top: auto;
+	width: 100%;
+	height: 250px;
+	background-color: #03091a;
+	color: #fff;
+}
+
+.footer img {
+	width: 180px;
+	height: 120px;
+}
+
+.footer .content {
+	margin: 20px;
+}
+
+.footer p {
+	font-size: .7rem;
+	line-height: 30px;
+	letter-spacing: 2px;
+}
+
+.footer p span {
+	font-weight: 700;
+	font-size: 1.3rem;
+	line-height: 60px;
+}
+
+.footer i {
+	padding: 20px;
+	color: #fff;
+}
+
+/*catalog*/
+
+.catalog {
+	width: 253px;
+	margin-left: 20%;
+}
+
+.down {
+  	text-transform: uppercase;
+  	transition: .2s ease-in-out;
+  	position: relative;
+}
+
+.submenu {
+	list-style: none;
+  	margin: 0;
+  	padding: 0;
+	width: 253px;
+  	background: #fff;
+  	border-radius: 0 0 5px 5px;
+  	position: absolute;
+  	visibility: hidden;
+  	opacity: 0;
+  	z-index: 5;
+  	box-shadow: 0 10px 17px 2px #ccc;
+  	transition: .1s all linear;
+}
+
+.catalog:hover .submenu {
+  	visibility: visible;
+  	opacity: 1;
+}
+
+.submenu li a {
+	text-decoration: none;
+  	color: #000;
+  	font-size: .7rem;
+  	padding: 15px 30px 15px 30px;
+  	transition: .2s ease-in-out;
+}
+
+.submenu li {
+	width: 100%;
+	padding: 5px;
+}
+
+.submenu li:hover {
+	background-color: #f1f1f1;
+}
+
+.submenu li:last-child:hover {
+	background-color: #f1f1f1;
+	border-radius: 0 0 5px 5px;
+}
