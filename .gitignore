@@ -125,6 +125,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-products/migrations
 media
 eltex_db
