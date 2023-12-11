@@ -31,7 +31,9 @@ class BaseView(CartMixin, View):
             'cart': self.cart
         }
         return render(request, 'products/index.html', context)
-
+    
+    
+    
 
 class ProductDetailView(CartMixin, CategoryDetailMixin, DetailView):
     CT_MODEL_MODEL_CLASS = {
@@ -70,6 +72,8 @@ class CategoryDetailView(CartMixin, CategoryDetailMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['cart'] = self.cart
         return context
+
+
 
 
 class AddToCartView(CartMixin, View):
